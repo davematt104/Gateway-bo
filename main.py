@@ -1,3 +1,4 @@
+import os
 import random
 import time
 import requests
@@ -179,7 +180,7 @@ async def docs(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # BOT SETUP
 # =========================
 
-app = ApplicationBuilder().token("YOUR_BOT_TOKEN").build()
+app = ApplicationBuilder().token(os.environ["BOT_TOKEN"]).build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.CONTACT, contact_handler))
